@@ -14,4 +14,9 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="120.0.6099.10900" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\AngleSharpExtensions\AngleSharpExtensions\AngleSharpExtensions.csproj" />
+    <ProjectReference Include="..\CompanyDataCollector.Shared\CompanyDataCollector.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyDataCollector", "CompanyDataCollector\CompanyDataCollector.csproj", "{B00C9A73-8935-422D-B70C-13D742803C93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyDataCollector.Shared", "CompanyDataCollector.Shared\CompanyDataCollector.Shared.csproj", "{735D04AA-0336-4BAA-85AD-042F2C74D5A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B00C9A73-8935-422D-B70C-13D742803C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B00C9A73-8935-422D-B70C-13D742803C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B00C9A73-8935-422D-B70C-13D742803C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735D04AA-0336-4BAA-85AD-042F2C74D5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735D04AA-0336-4BAA-85AD-042F2C74D5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735D04AA-0336-4BAA-85AD-042F2C74D5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735D04AA-0336-4BAA-85AD-042F2C74D5A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

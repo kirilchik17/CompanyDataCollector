@@ -8,6 +8,11 @@ namespace CompanyDataCollector.Shared
 {
     public class Company
     {
+        public Company()
+        {
+            ActivityStatistics = new ActivityStatistics() { AreaCases = new List<AreaCase>()};
+        }
+
         public string Phone { get; set; }
         public string TargetGroups { get; set; }
         public string Site { get; set; }
@@ -19,6 +24,13 @@ namespace CompanyDataCollector.Shared
         public string Fax { get; set; }
         public string CompanyId { get; set; }
         public string Status { get; set; }
-        public ActivityStatistics ActivityStatistics { get; set; }
+        public string ActivityStatisticsJson { get =>  ActivityStatistics.ToString(); }
+        private ActivityStatistics ActivityStatistics { get; set; }
+
+        public void AddCase(AreaCase areaCase)
+        {
+            ActivityStatistics.AreaCases.Add(areaCase);
+            ActivityStatistics.TotalCases += areaCase.Amount;
+        }
     }
 }

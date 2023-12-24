@@ -86,7 +86,7 @@ namespace CompanyDataCollector
             void ScrapCompany(string guidestarLink, IDocument companyDoc)
             {
                 var linkToSite = companyDoc.Body.SelectSingleNode(XQueryLinkByText("אתר:")).GetLink();
-                var email = string.Join("",companyDoc.Body.SelectSingleNode(XQueryLinkByText("דוא\"ל:")).GetLink().SkipWhile(x=> x != ':').Skip(1));
+                var email = string.Join("",companyDoc.Body.SelectSingleNode(XQueryLinkByText("דוא\"ל:")).GetLink()?.SkipWhile(x=> x != ':').Skip(1) ?? "");
                 var phone = companyDoc.QuerySelector(".phonenum")?.TextContent;
                 var address = companyDoc.Body.SelectSingleNode(XQueryByText("כתובת:")).GetLink();
                 var fax = companyDoc.Body.SelectSingleNode(XQueryByText("פקס:")).GetLink();

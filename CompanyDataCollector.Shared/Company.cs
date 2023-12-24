@@ -18,7 +18,7 @@ namespace CompanyDataCollector.Shared
         public string ActiveArea { get; set; }
         public string Fax { get; set; }
         public string CompanyId { get; set; }
-        public bool Active { get; set; }
+        public string Status { get; set; }
         public ActivityStatistics ActivityStatistics { get; set; }
     }
 }

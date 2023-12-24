@@ -68,6 +68,8 @@ namespace CompanyDataCollector
                     //.desktop-show .ng-star-inserted .malkar-info-chart-pie .chart-pie-table-row .chart-pie-table-cell
                     var GSCompanyDoc = parser.ParseDocument(driver.PageSource); 
                     var statRows = GSCompanyDoc.QuerySelectorAll(".desktop-show .ng-star-inserted .malkar-info-chart-pie .chart-pie-table-row .chart-pie-table-cell").Select(x=> x.TextContent).ToArray();
+                    GSCompanyDoc.Body.SelectSingleNode("//h3[text()='קהל יעד']/following-sibling::");
+                    
                     company.ActivityStatistics = new ActivityStatistics() { AreaCases = new List<AreaCase>()};
                     for (int i = 0; i < statRows.Length; i+= 2)
                     {

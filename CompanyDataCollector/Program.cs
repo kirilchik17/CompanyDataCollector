@@ -79,6 +79,11 @@ namespace CompanyDataCollector
                         company.ActivityStatistics.AreaCases.Add(areaAase);
                         company.ActivityStatistics.TotalCases += areaAase.Amount;
                     }//got statistics, next get contact info, if active and main area of activity
+                    var activeArea = GSCompanyDoc.Body.SelectSingleNode(XQueryGuidestarByText("אזור פעילות")).TextContent;
+                    var status = GSCompanyDoc.Body.SelectSingleNode(XQueryGuidestarByText(" בהליכי מחיקה")).TextContent;
+                    company.ActiveArea = activeArea;
+                    company.Status = status;
+
                 }
             }
 
@@ -88,6 +93,12 @@ namespace CompanyDataCollector
         {
             return $"//th[text()='{companyDataString}']/following-sibling::td[1]/a";
         }
+
+        static string XQueryGuidestarByText(string companyDataString)
+        {
+            return $"//span[text()='{companyDataString}']/parent::div/span[@class='label-value-value ng-star-inserted']";
+        }
+
         static string XQueryByText(string companyDataString)
         {
             return $"//th[text()='{companyDataString}']/following-sibling::td[1]";

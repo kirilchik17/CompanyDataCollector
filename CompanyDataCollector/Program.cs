@@ -11,6 +11,7 @@ using AngleSharp.Html.Parser;
 using System.Xml.XPath;
 using AngleSharp.Browser;
 using System.Text;
+using CsvHelper;
 using CompanyDataCollector.Shared;
 namespace CompanyDataCollector
 {
@@ -24,9 +25,15 @@ namespace CompanyDataCollector
                 BinaryLocation = "C:\\Users\\Asus\\source\\repos\\chromeDriver\\chrome.exe"
             });
 
+            Directory.CreateDirectory("./output");
+            using var filestream = File.Create("./output/outputCompanies" + DateTime.Now.ToShortDateString() + ".csv");
+            using var streamWriter = new StreamWriter(filestream);
+            using var writer = new CsvWriter(streamWriter, new System.Globalization.CultureInfo(0x0000));
+            writer.WriteHeader<Company>();
 
             driver.Navigate().GoToUrl(KOLZHUT_BASE_URL + "/he/קטגוריה:פורטלים");
             HtmlParser parser = new HtmlParser();
+            
 
             //li[data-raofz="18"]
             var categoriesDoc = parser.ParseDocument(driver.PageSource);
@@ -83,9 +90,11 @@ namespace CompanyDataCollector
                     }//got statistics, next get contact info, if active and main area of activity
                     var activeArea = GSCompanyDoc.Body.SelectSingleNode(XQueryGuidestarByText("אזור פעילות")).TextContent;
                     var status = GSCompanyDoc.Body.SelectSingleNode(XQueryGuidestarByText(" בהליכי מחיקה")).TextContent;
+                    var companyId = GSCompanyDoc.Body.SelectSingleNode(XQueryGuidestarByText("מספר ארגון")).TextContent;
                     company.ActiveArea = activeArea;
                     company.Status = status;
-
+                    company.CompanyId = companyId;
+                    writer.WriteRecord(company);   
                 }
             }
 

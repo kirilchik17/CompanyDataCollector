@@ -12,7 +12,7 @@ namespace CompanyDataCollector.Shared
         {
             ActivityStatistics = new ActivityStatistics() { AreaCases = new List<AreaCase>()};
         }
-
+        public string Name { get; set; }
         public string Phone { get; set; }
         public string TargetGroups { get; set; }
         public string Site { get; set; }
@@ -24,6 +24,12 @@ namespace CompanyDataCollector.Shared
         public string Fax { get; set; }
         public string CompanyId { get; set; }
         public string Status { get; set; }
+        public string AreaOfExpertise { get; set; }
+        public string Price { get; set; }
+        public string ParentOrganization { get; set; }
+        public string PrimarySpeciality { get; set; }
+        public string SecondarySpeciality { get; set; }
+        public string Category {  get; set; }
         public string ActivityStatisticsJson { get =>  ActivityStatistics.ToString(); }
         private ActivityStatistics ActivityStatistics { get; set; }
 

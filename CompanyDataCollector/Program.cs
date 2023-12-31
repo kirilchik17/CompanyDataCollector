@@ -98,7 +98,7 @@ namespace CompanyDataCollector
                             var linksToSub3Companies = subCompanyDoc.QuerySelectorAll("tbody tr td:nth-child(1) a:not([class])").GetLinks();
                             if (linksToSub3Companies == null || linksToSub3Companies.Count == 0)
                             {
-                                ScrapCompany(guidestarelem?.GetLink(), speciality, companyDoc);
+                                ScrapCompany(guidestarelem?.GetLink(), speciality, sub2CompanyDoc);
                                 continue;
                             }
 
@@ -109,8 +109,8 @@ namespace CompanyDataCollector
                                 else
                                     continue;
                                 using var sub3CompanyDoc = parser.ParseDocument(driver.PageSource);
-                                var guidestar3 = sub2CompanyDoc.Body.SelectSingleNode("//a[text()='הארגון בגיידסטאר']").GetLink();
-                                ScrapCompany(guidestar3, speciality, sub2CompanyDoc);
+                                var guidestar3 = sub3CompanyDoc.Body.SelectSingleNode("//a[text()='הארגון בגיידסטאר']").GetLink();
+                                ScrapCompany(guidestar3, speciality, sub3CompanyDoc);
 
                             }
                         }                                               

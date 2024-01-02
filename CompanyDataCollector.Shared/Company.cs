@@ -30,6 +30,12 @@ namespace CompanyDataCollector.Shared
         public string PrimarySpeciality { get; set; }
         public string SecondarySpeciality { get; set; }
         public string Category {  get; set; }
+        public string Insurance {  get; set; }
+        public string IntervantionType {  get; set; }
+        public string GroupAverageWait {  get; set; }
+        public string IndividualAverageWait {  get; set; }
+        public string IntakeWait {  get; set; }
+        public string ImgLink {  get; set; }
         public string ActivityStatisticsJson { get =>  ActivityStatistics.ToString(); }
         private ActivityStatistics ActivityStatistics { get; set; }
 

@@ -5,6 +5,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Description>Kolzhut Company data collector</Description>
+    <Authors>Kirill Chigir</Authors>
+    <Title>CompanyDataCollector</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +21,21 @@
   <ItemGroup>
     <ProjectReference Include="..\..\AngleSharpExtensions\AngleSharpExtensions\AngleSharpExtensions.csproj" />
     <ProjectReference Include="..\CompanyDataCollector.Shared\CompanyDataCollector.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

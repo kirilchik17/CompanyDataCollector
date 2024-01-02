@@ -136,13 +136,15 @@ namespace CompanyDataCollector
                     var fax = companyDoc.Body.SelectSingleNode(XQueryByText("פקס:"))?.TextContent;
                     var facebook = companyDoc.Body.SelectSingleNode(XQueryFacebookByText())?.GetLink();
                     var name = companyDoc.QuerySelector("#firstHeading")?.TextContent;
+                    var imageURL = companyDoc.QuerySelector(".infobox-logo.text-center img")?.GetAttribute("src");
 
                     var price = companyDoc.Body.SelectSingleNode(XQueryByText("עלות:"))?.TextContent;
                     var FirstPrioritySpec = companyDoc.Body.SelectSingleNode(XQueryByText("תחום ראשי:"))?.TextContent;
                     var SecondPrioritySpec = companyDoc.Body.SelectSingleNode(XQueryByText("תחום משני:"))?.TextContent;
                     var parentOrganization = companyDoc.Body.SelectSingleNode(XQueryByText("ארגון מפעיל:"))?.TextContent;
 
-
+                    if(imageURL != null && imageURL.StartsWith("/"))
+                        imageURL = KOLZHUT_BASE_URL + imageURL;
                     var company = new Company()
                     {             
                         Name = name,
@@ -157,7 +159,8 @@ namespace CompanyDataCollector
                         Price = price,
                         PrimarySpeciality = FirstPrioritySpec,
                         SecondarySpeciality = SecondPrioritySpec,
-                        ParentOrganization = parentOrganization
+                        ParentOrganization = parentOrganization,
+                        ImgLink = imageURL
 
                     };
                     if (guidestarLink == null)

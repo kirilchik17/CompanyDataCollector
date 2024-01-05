@@ -12,13 +12,43 @@ namespace CompanyDataCollector.Shared
         {
             ActivityStatistics = new ActivityStatistics() { AreaCases = new List<AreaCase>()};
         }
+        public Company(Company other)
+        {
+            ActivityStatistics = other.ActivityStatistics;
+            Name = other.Name;
+            Phone = other.Phone;
+            TargetGroups = other.TargetGroups;
+            Site = other.Site;
+            Email = other.Email;
+            Facebook = other.Facebook;
+            Address = other.Address;
+            GuideStarLink = other.GuideStarLink;
+            ActiveArea = other.ActiveArea;
+            Fax = other.Fax;
+            CompanyId = other.CompanyId;
+            Status = other.Status;
+            AreaOfExpertise = other.AreaOfExpertise;
+            Price = other.Price;
+            ParentOrganization = other.ParentOrganization;
+            PrimarySpeciality = other.PrimarySpeciality;
+            SecondarySpeciality = other.SecondarySpeciality;
+            Category = other.Category;
+            Insurance = other.Insurance;
+            IntervantionType = other.IntervantionType;
+            GroupAverageWait = other.GroupAverageWait;
+            IndividualAverageWait = other.IndividualAverageWait;
+            IntakeWait = other.IntakeWait;
+            ImgLink = other.ImgLink;
+
+        }
+        
         public string Name { get; set; }
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         public string TargetGroups { get; set; }
-        public string Site { get; set; }
-        public string Email { get; set; }
-        public string Facebook { get; set; }
-        public string Address { get; set; }
+        public string? Site { get; set; }
+        public string? Email { get; set; }
+        public string? Facebook { get; set; }
+        public string? Address { get; set; }
         public string GuideStarLink { get; set; }
         public string ActiveArea { get; set; }
         public string Fax { get; set; }

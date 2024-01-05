@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\AngleSharpExtensions\AngleSharpExtensions\AngleSharpExtensions.csproj" />
+    <ProjectReference Include="..\CompanyDataCollector.Logic\CompanyDataCollector.Logic.csproj" />
     <ProjectReference Include="..\CompanyDataCollector.Shared\CompanyDataCollector.Shared.csproj" />
   </ItemGroup>
 

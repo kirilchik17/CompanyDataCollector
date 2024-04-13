@@ -26,7 +26,7 @@ namespace CompanyDataCollector
         {
             WebDriver driver = new ChromeDriver(new ChromeOptions
             {
-                BinaryLocation = "C:\\Users\\Asus\\source\\repos\\chromeDriver\\chrome.exe"
+                BinaryLocation = "Your Location of the chrome.exe"
             });
             var filepath = $"./output/outputCompanies{DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year}.csv";
             Directory.CreateDirectory("./output");
